@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import handleSubmit from "@/actions/handleSubmit"; // Adjust the import path based on your project structure
-import Image from "next/image";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -25,8 +24,10 @@ export default function Home() {
   }, [downloadUrl]);
 
   return (
-    <div className="max-w-6xl mx-auto p-10 flex flex-col min-h-screen items-center border border-slate-900 justify-start">
-      <h1 className="text-blue-700">Download any video</h1>
+    <div className="bg-gradient-to-br from-sky-500 via-pink-400 to-rose-500  max-w-6xl mx-auto p-2 flex flex-col  border rounded-xl container h-[85vh] items-center justify-center">
+      <h1 className="text-2xl my-1 md:text-6xl md:my-3 text-blue-700">
+        Download Any Youtube Video
+      </h1>
       <form className="flex gap-3" onSubmit={onSubmit}>
         <TextField
           onChange={(e) => setInput(e.target.value)}
@@ -41,7 +42,10 @@ export default function Home() {
           Search
         </Button>
       </form>
-      
+      <div className="max-w-md text-md p-2 bg-gradient-to-br from-blue-600 via-purple-400 to-pink-300 rounded-lg text-center border  my-5 ">
+        After searching you will be redirected to the video and after clicking
+        on ':' button you will be able to download it
+      </div>
     </div>
   );
 }
