@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import handleSubmit from "@/actions/handleSubmit"; // Adjust the import path based on your project structure
+import Image from "next/image";
 
-export default function Home(){
+export default function Home() {
   const [input, setInput] = useState("");
   const [downloadUrl, setDownloadUrl] = useState(""); // State to store the download URL
 
@@ -24,8 +25,8 @@ export default function Home(){
   }, [downloadUrl]);
 
   return (
-    <div className="max-w-6xl mx-auto p-2 flex flex-col min-h-screen items-center justify-start">
-        <h1 className="text-blue-700">Download any video</h1>
+    <div className="max-w-6xl mx-auto p-10 flex flex-col min-h-screen items-center border border-slate-900 justify-start">
+      <h1 className="text-blue-700">Download any video</h1>
       <form className="flex gap-3" onSubmit={onSubmit}>
         <TextField
           onChange={(e) => setInput(e.target.value)}
@@ -40,14 +41,7 @@ export default function Home(){
           Search
         </Button>
       </form>
-      {downloadUrl && ( // Render the download URL if available
-        <div>
-          <p>Download URL:</p>
-          <a href={downloadUrl} target="_blank" rel="noopener noreferrer">
-            {downloadUrl}
-          </a>
-        </div>
-      )}
+      
     </div>
   );
 }
